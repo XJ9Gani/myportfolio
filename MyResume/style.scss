@@ -1,0 +1,239 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }     
+body{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    min-height: 100vh;
+    background-color: #191919;
+    font-family: sans-serif;
+}
+::-webkit-scrollbar{
+    background-color: black;
+    &-thumb{
+        background-color: rgb(250, 250, 250);
+    }
+}
+
+.navbar{
+    width: 100%;
+    position: sticky;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9;
+    background:#1a1a1a;
+}
+.link-group{
+    list-style: none;
+    display: flex;
+    .link.active{
+        opacity: 0.6;
+    }
+}
+.menuItem{
+    color: rgb(245, 245, 245);
+    text-decoration: none;
+    text-transform: capitalize;
+    padding: 10px 30px;
+    margin:  0 20px;
+    line-height: 80px;
+    transition: .5s;
+    font-size: 20px;
+    color: white;
+    &.none-active{
+        opacity: 0.3;
+        &:hover{
+            opacity: 1;
+        }
+    }
+}
+
+.home-section{
+    width: 100%;
+    height: 100vh;
+    padding: 0 150px;
+    display: flex;
+    align-items: center;
+    top: 0;
+    transition: 0.7s;
+    .hero-heading{
+    color: rgb(255, 255, 255);
+    font-size: 120px;
+    font-weight:300;
+    z-index: 2;
+     }
+     img{
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 50%;
+        object-fit: cover;
+        opacity: 0.2;
+     }
+}
+
+@mixin footBorder{
+    margin-top: 50px;
+    border-right: 1px solid rgba(255, 255, 255, 0.5);
+    height: 170px;
+    width: 400px;
+    text-align: center;
+}
+footer{
+  width: 100%;
+  height: 30vh;
+  background-color:#000000;
+}
+.contact{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &-phone{
+        display: flex;
+        flex-direction: column;
+        @include footBorder;
+        text-align: center;
+        color: white;
+        font-size: 50px;
+        font-weight: 100;
+        &-img{
+            width: 100px;
+            margin: auto;
+           }
+        &-number{
+            color: aliceblue;
+            margin: auto;
+            font-size: 20px;
+        }
+    }
+    &-whats{
+       @extend .contact-phone;
+        &-img{
+            width: 100px;
+            margin: auto;
+           }
+        &-number{
+            color: aliceblue;
+            margin: auto;
+            font-size: 20px;
+        }
+    }
+    &-inst{
+       @extend .contact-phone;
+       &-img{
+        width: 100px;
+        margin: auto;
+        &:hover{
+            transform: scale(1.2);
+        }
+       }
+    } 
+}
+
+.project{
+ &-section{
+    width: 100%;
+    min-height: 100vh;
+    padding: 150px 100px 100px;
+    position: relative;
+    top: 0;
+ }
+
+&-heading{
+    font-size: 100px;
+    background: #252525;
+    text-transform: capitalize;
+    text-align: center;
+    margin-bottom: 50px;
+    color: #1a1a1a;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-stroke: 8px transparent;
+}
+
+&-container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 100px;
+}
+
+&-card{
+    height: 400px;
+    position: relative;
+    &:hover .project-img{
+        filter: blur(20px);
+    }
+    
+    &:hover .project-content{
+        opacity: 1;
+     }
+}
+
+&-img{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    transition: .5s;
+}
+
+&-content{
+    position: relative;
+    padding: 40px;
+    color: #fff;
+    transition: .5s;
+    opacity: 0;
+}
+
+&-title{
+    font-size: 50px;
+    text-transform: capitalize;
+    text-align: center;
+    font-weight: 300;
+}
+
+&-info{
+    margin: 40px;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+}
+
+
+&-btn{
+    height: 40px;
+    text-transform: capitalize;
+    font-size: 18px;
+    border: none;
+    background: #000;
+    color: #fff;
+    cursor: pointer;
+    &-grp{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 20px;
+    }
+    &.live{
+        background: none;
+        border: 2px solid #fff;
+    }
+    &-link{
+        text-decoration: none;
+        color: #fff;
+    }
+}
+
+
+
+
+}
